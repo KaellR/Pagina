@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi niñaaa 💖</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .mensaje {
+            display: none;
+            font-size: 1.8rem;
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+            animation: aparecer 2s ease-in-out;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #ff4d6d;
+            color: white;
+            cursor: pointer;
+            z-index: 2;
+            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #e63956;
+        }
+
+        .corazon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            animation: flotar 6s linear infinite;
+        }
+
+        @keyframes flotar {
+            from {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-10vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        img {
+            max-width: 300px;
+            border-radius: 20px;
+            margin-top: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>💖 Hola Preciosaaaaaa 💖</h1>
+        <button onclick="mostrarMensaje()">Haga click para su sorpresa</button>
+
+        <div class="mensaje" id="mensaje">
+            <p>Uste es lo mejor que me ha pasado 💕<br>
+                La Amooooo 😘</p>
+
+            <!-- Imagen que aparecerá junto con el mensaje -->
+            <img id="imagen" src="Gato.png" alt="Nuestra foto">
+        </div>
+    </div>
+
+    <audio id="musica" src="cancion.mp3"></audio>
+
+    <script>
+        function mostrarMensaje() {
+            document.getElementById("mensaje").style.display = "block";
+            document.getElementById("imagen").style.display = "block"; // Mostrar la imagen
+        }
+
+        // Crear corazones flotando
+        function crearCorazon() {
+            const corazon = document.createElement("div");
+            corazon.classList.add("corazon");
+            corazon.innerHTML = "❤️";
+            corazon.style.left = Math.random() * window.innerWidth + "px";
+            corazon.style.fontSize = (20 + Math.random() * 30) + "px";
+            document.body.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, 6000);
+        }
+
+        setInterval(crearCorazon, 500);
+    </script>
+</body>
+
+</html>
